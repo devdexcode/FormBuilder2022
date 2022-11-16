@@ -328,7 +328,9 @@ class FormBuilder
             } ?>
             <input type="date" class="form_builder_field <?= (@$required != "" ? 'required' : ''); ?> form-control <?= $the_id ?> input-<?= $type; ?> type-date field_<?= $the_id ?>" id="<?= $the_id ?>" name="<?= $the_name ?>" value="<?= (@$dbval != "" ? $dbval : (isset($_REQUEST[$the_name]) ? $_REQUEST[$the_name] : '')); ?>" <?= (@$required != "" ? 'required="required"' : ''); ?> data-id="<?= $the_id ?>" data-date="<?= $the_date; ?>" <?= (isset($readonly) && $readonly != "") ? 'readonly="readonly"' : ''; ?> <?= (isset($disabled) && $disabled != "") ? 'disabled="disabled"' : ''; ?>>
         </div>
-        <small class="description response font-italic text-small text-muted pl-1"> <?php echo  $description != "" ? ucfirst($description) : ''; ?></small>
+        <small class="description response font-italic text-small text-muted pl-1">
+                <?php echo  $description != "" ? ucfirst($description) : ''; ?>
+                    </small>
     <?php
     }
 
@@ -558,7 +560,7 @@ class FormBuilder
     <?php
     }
 
-    /* 
+/* 
  * 18. WORDPRESS UPLOAD MULTIPLE IMAGES
  * * * * * * * * */
     public function wp_upload_multiple($args)
@@ -605,7 +607,10 @@ class FormBuilder
                     <?php foreach ($image_gallery as $id => $src) : ?>
                         <div class="img-container">
                             <img src="<?php echo $src ?>" class="gallery_image img-thumbnail" id="<?php echo $id; ?>">
-                            <button type="button" class="btncls"> <i class="fa fa-close"></i> </button>
+                            <button type="button" class="btncls">
+                        <i class="fa fa-times"></i>
+						<!---<i class="fa fa-close"></i>-->
+                        	</button>
                         </div>
                     <?php endforeach; ?>
 
